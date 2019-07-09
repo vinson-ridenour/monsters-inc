@@ -32,10 +32,3 @@ class App extends Component {
 
 export default App;
 
-const myPromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('I have succeded')
-  }, 1000)
-})
-// every .then is wrapped in a resolved promise
-myPromise.then(value => console.log(value))

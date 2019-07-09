@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// imprt logo from './logo.svg';
+import { CardList } from './components/card-list/card-list.component'
 import './App.css';
 
 
@@ -8,7 +8,8 @@ class App extends Component {
     super()
 
     this.state = {
-      monsters: []
+      monsters: [],
+      searchField: ''
     }
   }
 
@@ -21,11 +22,16 @@ class App extends Component {
   render() { // as soon as state changes, this render method fires again
     return (
         <div className="App">
-          {
-            this.state.monsters.map(monster => (
-              <h1 key={monster.id}> {monster.name} </h1>
-            ))}
-        </div>
+        <input 
+          type='search' 
+          placeholder='search monsters' 
+          onChange={e => 
+            this.setState({ searchField: e.target.value })}
+        />
+        <CardList monsters={this.state.monsters}> { // this component receives monsters as a prop
+        }
+        </CardList>
+      </div>
     )
   }
 }
